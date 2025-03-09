@@ -1,13 +1,13 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 let amigos = 0;
-//let amigoSecreto = 0;
+let amigoSecreto = " ";
 let nombreAmigo = " ";
 let amigorepetido = 1;
 let listaAmigosSecretos = [];
 
 function agregarAmigo() {
     nombreAmigo = document.getElementById('amigo').value; 
-
+    //comprobar si ha ingresado algun nombre
     if (!nombreAmigo.trim()) {
         alert("Por favor, inserte un nombre.");
         return;
@@ -22,9 +22,11 @@ function agregarAmigo() {
         }
         // Limpiamos el input para que el usuario pueda ingresar otro nombre
         document.getElementById('amigo').value = "";
-
         // Mostramos la lista actualizada en la consola
         console.log("Lista de amigos: ", listaAmigosSecretos);
+        if (listaAmigosSecretos.length >= 3) {
+            document.getElementById("sorteo").removeAttribute('disabled'); 
+        }
     actualizarlistaamigos();
 }
 function actualizarlistaamigos() {
@@ -47,9 +49,28 @@ function actualizarlistaamigos() {
     }
 }
 function sortearAmigo() {
+    const ul = document.getElementById("resultado");
+    // Limpiar el contenido anterior
+    ul.innerHTML = "";
     if(listaAmigosSecretos.length <= 2){
-        console.log(`Agregue ${listaAmigosSecretos.length <= 1? 'mas amigos' : 'al menos otro amigo'}`);
-        console.log(listaAmigosSecretos.length);
-        //console.log("agregue un amigo");
+        //reiniciar lista y mostrar mensaje que faltan agregar amigos      
+        const li = document.createElement("li");
+        li.innerHTML = "";
+        li.textContent = `Agrega ${listaAmigosSecretos.length <= 1 ? 'tus amigos' : 'al menos otro amigo'}`;
+        document.getElementById("resultado").appendChild(li); 
+    }else{
+        // Limpiar el contenido de lista de amigos
+        const ul = document.getElementById("listaAmigos");        
+        ul.innerHTML = "";
+        // Limpiar el contenido del mensaje
+        const ul1 = document.getElementById("resultado");
+        ul1.innerHTML = "";
+        //mostrar el mensaje del amigo secreto
+        const li = document.createElement("li");
+        let numRandom = Math.floor(Math.random()*listaAmigosSecretos.length);
+        console.log(numRandom);
+        li.textContent = `El Amigo secreto es: ${listaAmigosSecretos[numRandom]}`;
+        document.getElementById("resultado").appendChild(li);
+        
     }
 }
