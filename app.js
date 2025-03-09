@@ -2,7 +2,7 @@
 //let amigos = 0;
 //let amigoSecreto = 0;
 let nombreAmigo = " ";
-//let amigorepetido = 1;
+let amigorepetido = 1;
 let listaAmigosSecretos = [];
 
 function agregarAmigo() {
@@ -13,16 +13,12 @@ function agregarAmigo() {
         return;
     }
     if (listaAmigosSecretos.includes(nombreAmigo)) {
-            console.log("El nombre ya está en la lista.");
-            //nombreAmigo = document.getElementById('amigo').value;
-            //listaAmigosSecretos.includes(nombreAmigo+amigorepetido)
-            //amigorepetido++;
-            //console.log(amigorepetido);
+            //Agrega un número al final si se repite el nombre de un amigo
+            listaAmigosSecretos.push(nombreAmigo+amigorepetido);
+            amigorepetido++;
         } else {
             // Agregamos el nombre a la lista
-            listaAmigosSecretos.push(nombreAmigo);
-            console.log("Nombre agregado: " + nombreAmigo);
-       
+            listaAmigosSecretos.push(nombreAmigo);       
         }
         // Limpiamos el input para que el usuario pueda ingresar otro nombre
         document.getElementById('amigo').value = "";
