@@ -25,24 +25,24 @@ function agregarAmigo() {
 
         // Mostramos la lista actualizada en la consola
         console.log("Lista de amigos: ", listaAmigosSecretos);
-        
+    actualizarlistaamigos();
 }
-/*function actualizarlistaamigos() {
-    // Seleccionamos el elemento <ul> del DOM
+function actualizarlistaamigos() {
+    // 1. Obtener el elemento de la lista
     const listaAmigos = document.getElementById("listaAmigos");
 
-    // Limpiamos la lista antes de agregar los elementos
+    // 2. Limpiar la lista existente
     listaAmigos.innerHTML = "";
 
-    // Recorremos el array y agregamos cada nombre a la lista
-    listaAmigosSecretos.forEach(function(amigo) {
-        // Creamos un elemento <li>
+    // 3. Iterar sobre el arreglo amigos usando un bucle for
+    for (let i = 0; i < listaAmigosSecretos.length; i++) {
+        // 4. Crear un nuevo elemento <li> para cada amigo
         const li = document.createElement("li");
 
-        // Asignamos el texto del <li> con el nombre del amigo
-        li.textContent = amigo;
+        // Asignar el texto del <li> con el nombre del amigo
+        li.textContent = listaAmigosSecretos[i];
 
-        // Agregamos el <li> al <ul>
+        // Agregar el <li> al <ul>
         listaAmigos.appendChild(li);
-    });
-}*/
+    }
+}
