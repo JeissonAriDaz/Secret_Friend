@@ -1,5 +1,5 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
-//let amigos = 0;
+let amigos = 0;
 //let amigoSecreto = 0;
 let nombreAmigo = " ";
 let amigorepetido = 1;
@@ -44,5 +44,12 @@ function actualizarlistaamigos() {
 
         // Agregar el <li> al <ul>
         listaAmigos.appendChild(li);
+    }
+}
+function sortearAmigo() {
+    if(listaAmigosSecretos.length <= 2){
+        console.log(`Agregue ${listaAmigosSecretos.length <= 1? 'mas amigos' : 'al menos otro amigo'}`);
+        console.log(listaAmigosSecretos.length);
+        //console.log("agregue un amigo");
     }
 }
