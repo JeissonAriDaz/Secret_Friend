@@ -152,6 +152,9 @@ ul {
     background-color: var(--color-button);
     font-size: 16px;
 }
+.button-draw:disabled {
+    background: #898989;
+}
 
 .button-draw img {
     margin-right: 40px;

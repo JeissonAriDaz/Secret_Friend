@@ -24,10 +24,7 @@ function agregarAmigo() {
         document.getElementById('amigo').value = "";
         // Mostramos la lista actualizada en la consola
         console.log("Lista de amigos: ", listaAmigosSecretos);
-        if (listaAmigosSecretos.length >= 3) {
-            document.getElementById("sorteo").removeAttribute('disabled'); 
-        }
-    actualizarlistaamigos();
+actualizarlistaamigos();
 }
 function actualizarlistaamigos() {
     // 1. Obtener el elemento de la lista
@@ -52,6 +49,7 @@ function sortearAmigo() {
     const ul = document.getElementById("resultado");
     // Limpiar el contenido anterior
     ul.innerHTML = "";
+    document.getElementById("sorteo").classList.add("true");
     if(listaAmigosSecretos.length <= 2){
         //reiniciar lista y mostrar mensaje que faltan agregar amigos      
         const li = document.createElement("li");
